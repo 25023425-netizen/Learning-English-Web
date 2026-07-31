@@ -1,4 +1,4 @@
 package com.tacuc.learningenglishweb.entity;
 
-public class Admin {
+public class FlashcardDeck {
 }

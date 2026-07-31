@@ -1,4 +1,4 @@
 package com.tacuc.learningenglishweb.entity;
 
-public class Class {
+public class Classroom {
 }
