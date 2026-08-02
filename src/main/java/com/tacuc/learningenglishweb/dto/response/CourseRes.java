@@ -1,4 +1,4 @@
-package com.tacuc.learningenglishweb.dto.request;
+package com.tacuc.learningenglishweb.dto.response;
 
 public class CourseRes {
 }

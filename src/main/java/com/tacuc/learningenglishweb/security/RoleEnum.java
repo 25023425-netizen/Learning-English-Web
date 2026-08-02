@@ -1,4 +1,7 @@
 package com.tacuc.learningenglishweb.security;
 
-public class RoleEnum {
+public enum RoleEnum {
+    ADMIN,
+    TEACHER,
+    STUDENT
 }
