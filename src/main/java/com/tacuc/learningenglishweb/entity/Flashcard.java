@@ -21,6 +21,9 @@ public class Flashcard {
     private String example1;
     @Column(columnDefinition = "TEXT")
     private String example2;
+    @ManyToOne
+    @JoinColumn(name = "deck_id", nullable = false)
+    private FlashcardDeck deck;
     public Flashcard() {
     }
     public Flashcard(String meaning, String word, String example2, String example1) {
