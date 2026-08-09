@@ -29,6 +29,9 @@ public class ClassroomMember {
     private  User user;
     @Column(name = "joined_at")
     private LocalDateTime joinedAt;
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
     public ClassroomMember() {
     }
     public ClassroomMember(Classroom classroom, MemberStatus status, User user) {
