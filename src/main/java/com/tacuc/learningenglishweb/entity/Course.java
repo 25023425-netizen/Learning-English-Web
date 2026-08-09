@@ -63,4 +63,11 @@ public class Course {
         lessons.remove(lesson);
         lesson.setCourse(null);
     }
+    public void addClassroom(Classroom classroom){
+        classrooms.add(classroom);
+        classroom.setCourse(this);
+    }public void removeClassroom(Classroom classroom){
+        classrooms.remove(classroom);
+        classroom.setCourse(null);
+    }
 }

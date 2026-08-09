@@ -27,6 +27,8 @@ public class Question {
     private LocalDateTime updatedAt;
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Option> optionList = new ArrayList<>();
+    @OneToMany(mappedBy = "question")
+    private List<ExamQuestion> examQuestions = new ArrayList<>();
     public Question() {
     }
     @PrePersist
