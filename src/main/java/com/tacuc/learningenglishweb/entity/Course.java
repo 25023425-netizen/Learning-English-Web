@@ -19,10 +19,9 @@ public class Course {
     private UUID id;
     @Column(name = "course_name")
     private String name;
-    @ManyToOne
-    @JoinColumn(name = "classroom_id", nullable = false)
-    private Classroom classroom;
-    @Column(name = "created_at")
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Classroom> classrooms = new ArrayList<>();
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
@@ -30,9 +29,11 @@ public class Course {
     private List<Lesson> lessons = new ArrayList<>();
     public Course() {
     }
-    public Course(UUID id, String name) {
-        this.id = id;
+    @Column(name = "created_by", nullable = false)
+    private User user;
+    public Course(String name, User user) {
         this.name = name;
+        this.user = user;
     }
     @PrePersist
     public void onCreate(){

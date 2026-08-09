@@ -25,8 +25,9 @@ public class Classroom {
     private LocalDateTime createdAt;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-    @OneToMany(mappedBy = "classroom", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Course> courses = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
     public Classroom(String name, List<ClassroomMember> userList) {
         this.name = name;
         this.userList = userList;
@@ -66,13 +67,5 @@ public class Classroom {
     @Override
     public int hashCode() {
         return getClass().hashCode();
-    }
-    public void addCourse(Course course){
-        courses.add(course);
-        course.setClassroom(this);
-    }
-    public void remove(Course course){
-        courses.remove(course);
-        course.setClassroom(null);
     }
 }
